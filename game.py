@@ -24,10 +24,6 @@ num_of_guesses = 1
 
 num = randint(1, 100)
 
-if guess < 1 or guess > 100:
-    guess = int(raw_input("You guessed out of range! Please choose a number between 1 and 100. "))
-    num_of_guesses += 1
-
 while guess != num:
     num_of_guesses += 1
     if guess < 1 or guess > 100:
