@@ -32,6 +32,8 @@ while guess != num and answer == 'y':
         elif num_of_guesses > best_score:
             print "Your current best score is %s tries." % (best_score)
         answer = raw_input("Would you like to play again? y or n? ")
+        while answer != 'y' and answer != 'n':
+            answer = raw_input("Invalid input. Please enter y or n. ")
         if answer == 'y':
             num = randint(1, 100)
             num_of_guesses = 0
