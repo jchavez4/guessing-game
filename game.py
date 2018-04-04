@@ -14,16 +14,18 @@ print "Welcome to the guessing game, %s. Guess a number between 1 and 100." % (n
 
 while guess != num and answer == 'y' and num_of_guesses <= max_guesses:
     print "You have %s guesses left." % (guesses_left)
-    while True:
-        num_of_guesses += 1
-        try:
-            guess = int(raw_input("Your guess?"))
-            break
-        except ValueError:
-            guesses_left = max_guesses - num_of_guesses
-            print "Do you know what a number is?! Try again."
-            print "You have %s guesses left." % (guesses_left)
-    if guess == num or num_of_guesses >= max_guesses:
+    # print num_of_guesses
+    if guesses_left != 0:
+        while True:
+            num_of_guesses += 1
+            try:
+                guess = int(raw_input("Your guess?"))
+                break
+            except ValueError:
+                guesses_left = max_guesses - num_of_guesses
+                print "Do you know what a number is?! Try again."
+                print "You have %s guesses left." % (guesses_left)
+    if guess == num or guesses_left == 0:
         if guess == num:
             print "Well done, %s! You found my number in %s tries." % (name, num_of_guesses)
             if num_of_guesses < best_score:
